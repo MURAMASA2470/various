@@ -1,0 +1,114 @@
+body {
+  overflow-x: hidden;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+div button {
+  width: 130px;
+  height: 35px;
+  padding: 5px;
+  margin: 15px;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 3px;
+  border: solid 1px #CCC;
+}
+
+.drawer {
+  width: 350px;
+  height: 100vh;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  right: -350px;
+  transition: right .3s;
+  display: block;
+  z-index: 999;
+  user-select: none;
+  overflow-x: hidden;
+}
+
+.drawer.drawer-active {
+  right: 0;
+}
+
+.drawer .drawer-header {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  background-color: royalblue;
+}
+
+.drawer .drawer-body {
+  width: 350px;
+  position: relative;
+  display: block;
+}
+
+.drawer-item-top {
+  display: block;
+}
+
+.drawer .drawer-body .drawer-items {
+  width: 350px;
+  display: block;
+  padding-left: 20px;
+  pointer-events: none;
+}
+
+.drawer .drawer-body .drawer-item {
+  width: 100%;
+  height: 30px;
+  margin: 6px 0;
+  position: relative;
+  display: inline-block;
+  pointer-events: all;
+  padding-left: 5px;
+}
+
+.drawer .drawer-body > .drawer-item-top .drawer-item .drawer-items {
+  display: none;
+}
+
+.drawer .drawer-body .drawer-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.drawer .drawer-body > .drawer-item-top > .drawer-item {
+  margin-top: 12px;
+  padding-left: 20px;
+}
+
+.drawer .drawer-body .drawer-item::before {
+  content: '▶︎ ';
+  display: inline-block;
+  transition: .3s;
+  color: slategray;
+}
+
+.drawer .drawer-body .drawer-item:first-of-type {
+  margin-top: 12px;
+}
+
+.drawer-active.drawer-blur {
+  width: calc(100vw - 350px);
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .15);
+  transition: .3s;
+  z-index: 998;
+}
+
+.drawer .drawer-body .drawer-item.accordion-active::before {
+  transform: rotate(90deg);
+}
